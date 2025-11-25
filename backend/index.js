@@ -1,18 +1,18 @@
-const express =require('express')
+const express=require('express');
+const catalogRouter=require('./routes/catalog');
+const booksRouter=require('./routes/books');
+
+const app=express();
 
 
-const app=express()
-app.use(express.json())
+app.use(express.json());
 
-app.get('/',(req,res)=>{
-    res.status(200).json({msg:"done"})
-})
+app.use('/catalog',catalogRouter)
+app.use('/books',booksRouter)
 
-// home page (catalog)
-app.get('/catalog',(req,res)=>{
-    
-})
-const PORT=process.env||3000
-app.listen(PORT,()=>{
-    console.log(`server running on ${port}`)
-})
+const PORT=process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+module.exports=app;

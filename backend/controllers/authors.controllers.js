@@ -29,8 +29,7 @@ const getAllAuthors = async (req, res) => {
     return {
       name,
       dateOfBirth,
-      dateOfDeath,
-      url
+      dateOfDeath
     };
   });
 
