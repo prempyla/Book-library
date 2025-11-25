@@ -5,9 +5,9 @@ const getAllGenres = async (req, res) => {
   let genres = [];
 
   try {
-    genres = await prisma.genres.findMany({
+    genres = await prisma.genre.findMany({
       include: {
-        books: true
+        books: { select: { title: true } }
       }
     });
   } catch (err) {
@@ -20,6 +20,7 @@ const getAllGenres = async (req, res) => {
 
   const formattedGenres = genres.map((genre) => {
     let books = [];
+
     try {
       books = genre.books.map((b) => b.title);
     } catch (err) {
@@ -28,8 +29,9 @@ const getAllGenres = async (req, res) => {
     }
 
     return {
-      genre: genre.name,
-      books
+      name: genre.name,
+      books,
+      url: `/catalog/genre/${genre.id}`
     };
   });
 
