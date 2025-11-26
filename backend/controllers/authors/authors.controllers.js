@@ -1,9 +1,8 @@
-const prisma = require('../prisma');
+const prisma = require("../prisma");
 
 const getAllAuthors = async (req, res) => {
   let warning = false;
   let authors = [];
-
   try {
     authors = await prisma.author.findMany();
   } catch (err) {
@@ -39,4 +38,4 @@ const getAllAuthors = async (req, res) => {
   });
 };
 
-module.exports = getAllAuthors;
+module.exports = {getAllAuthors};

@@ -1,14 +1,14 @@
 const express=require('express');
 const catalogRouter=require('./routes/catalog');
 const booksRouter=require('./routes/books');
-
+const authorRouter=require('./routes/author');
 const app=express();
-
 
 app.use(express.json());
 
 app.use('/catalog',catalogRouter)
 app.use('/books',booksRouter)
+app.use('/author',authorRouter);
 
 const PORT=process.env.PORT || 3000;
 app.listen(PORT, () => {

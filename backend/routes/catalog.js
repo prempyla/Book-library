@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const homepageCatalog = require('../controllers/catalog.controllers');
-const { getAllBooks } = require('../controllers/books.controllers');
-const getAllAuthors = require('../controllers/authors.controllers');
+const { getAllBooks } = require('../controllers/Books/books.controllers');
+const getAllAuthors = require('../controllers/authors/authors.controllers');
 const getAllGenres = require('../controllers/genres.controllers');
 
 router.get('/', homepageCatalog);
