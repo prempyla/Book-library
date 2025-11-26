@@ -1,4 +1,4 @@
-const prisma = require("../prisma/client");
+const prisma = require("../../prisma.js");
 
 const getAuthorById=async (req,res)=>{
     const {id}=req.params;

@@ -1,4 +1,4 @@
-const prisma = require("../prisma");
+const prisma = require("../../prisma.js");
 
 const getAllBooks = async (req, res) => {
   let warning = false;
@@ -40,4 +40,4 @@ const getAllBooks = async (req, res) => {
   });
 };
 
-module.exports={getAllBooks}
+module.exports = { getAllBooks }

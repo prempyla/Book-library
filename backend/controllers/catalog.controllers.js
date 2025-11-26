@@ -1,27 +1,27 @@
-const prisma = require("../prisma");
+const prisma=require("../prisma.js");
 
-const homepagecatalog = async (req, res) => {
-  let warning = false;
-  let booksCount = null;
-  let authorsCount = null;
-  let genresCount = null;
+const homepagecatalog=async (req, res) => {
+  let warning=false;
+  let booksCount=null;
+  let authorsCount=null;
+  let genresCount=null;
 
   try {
-    booksCount = await prisma.book.count();
+    booksCount=await prisma.book.count();
   } catch (err) {
-    warning = true;
+    warning=true;
   }
 
   try {
-    authorsCount = await prisma.author.count();
+    authorsCount=await prisma.author.count();
   } catch (err) {
-    warning = true;
+    warning=true;
   }
 
   try {
-    genresCount = await prisma.genre.count();
+    genresCount=await prisma.genre.count();
   } catch (err) {
-    warning = true;
+    warning=true;
   }
 
   return res.status(200).json({
@@ -32,4 +32,4 @@ const homepagecatalog = async (req, res) => {
   });
 };
 
-module.exports = homepagecatalog;
+module.exports={homepagecatalog};

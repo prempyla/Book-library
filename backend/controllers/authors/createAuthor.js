@@ -1,4 +1,4 @@
-const prisma = require("../prisma");
+const prisma = require("../../prisma.js");
 
 const createAuthor= async (req,res)=>{
     const {firstName,familyName,  dateOfBirth ,dateOfDeath }=req.body

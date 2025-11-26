@@ -1,4 +1,4 @@
-const prisma = require("../prisma");
+const prisma = require("../../prisma.js");
 
 const deleteAuthor=async (req,res)=>{
     const {id}=req.params;
@@ -17,5 +17,5 @@ const deleteAuthor=async (req,res)=>{
 
     }
 
-        }
+}
 module.exports={deleteAuthor}

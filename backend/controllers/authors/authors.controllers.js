@@ -1,4 +1,4 @@
-const prisma = require("../prisma");
+const prisma = require("../../prisma.js");
 
 const getAllAuthors = async (req, res) => {
   let warning = false;
@@ -38,4 +38,4 @@ const getAllAuthors = async (req, res) => {
   });
 };
 
-module.exports = {getAllAuthors};
+module.exports = { getAllAuthors };

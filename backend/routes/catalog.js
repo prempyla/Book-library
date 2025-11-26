@@ -1,13 +1,13 @@
-const express = require('express');
-const router = express.Router();
+const express=require('express');
+const router=express.Router();
 
-const homepageCatalog = require('../controllers/catalog.controllers');
-const { getAllBooks } = require('../controllers/Books/books.controllers');
-const getAllAuthors = require('../controllers/authors/authors.controllers');
-const getAllGenres = require('../controllers/genres.controllers');
+const {homepagecatalog}=require('../controllers/catalog.controllers');
+const {getAllBooks}=require('../controllers/Books/books.controllers');
+const {getAllAuthors}=require('../controllers/authors/authors.controllers');
+const {getAllGenres}=require('../controllers/genres/getAllGenre');
 
-router.get('/', homepageCatalog);
-router.get('/books', getAllBooks);
-router.get('/authors', getAllAuthors);
-router.get('/genres', getAllGenres);
-module.exports = router;
+router.get('/',homepagecatalog);
+router.get('/books',getAllBooks);
+router.get('/authors',getAllAuthors);
+router.get('/genres',getAllGenres);
+module.exports=router;

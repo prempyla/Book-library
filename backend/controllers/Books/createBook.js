@@ -1,4 +1,4 @@
-const prisma = require("../prisma/client");
+const prisma = require("../../prisma.js");
 
 const createBook=async (req, res) => {
   const { title,summary,authorIds,genreIds} = req.body;
@@ -13,18 +13,18 @@ const createBook=async (req, res) => {
   try{
     const book =await prisma.book.create({
         data:{
-            title,
-            summary,
+        title,
+        summary,
             authors:{
                 connect:authorIds? authorIds.map(id=>({id})):[]
-            },
+        },
             genres:{
                 connect:genreIds? genreIds.map(id=>({id})):[]
-            }
         }
+      }
     })
     return res.status(201).json({
-        book,
+      book,
         warning:false
     })
   }catch (err){

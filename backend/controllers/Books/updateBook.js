@@ -1,4 +1,4 @@
-const prisma = require("../prisma/client");
+const prisma = require("../../prisma.js");
 
 
 const updateBook=async (req,res)=>{
@@ -8,26 +8,26 @@ const updateBook=async (req,res)=>{
     const book=await prisma.book.update({
         where:{
             id:parseInt(id)
-        },
+            },
         data:{
-            title,
-            summary,
+                title,
+                summary,
             authors:{
                 set:authorIds.map(id=>({id}))
-            },
+                },
             genres:{
                 set:genreIds.map(id=>({id}))
+                }
             }
-        }
-    })
-    return res.status(200).json({
-        book,
+        })
+        return res.status(200).json({
+            book,
         warning:false
-    })
+        })
     }catch (err){
         return res.status(500).json({
             message:"Server error: unable to update book"
         })
     }
 }
-module.exports={updateBook}
+module.exports = { updateBook }
